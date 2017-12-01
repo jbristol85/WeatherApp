@@ -1,5 +1,5 @@
-/*global $ navigator*/
-// var weather undergroud apiKey= "9e5eae0b85d5c062"
+/*global $ navigator GOOGLEAPI*/
+
 
 var locate = {
     coords: {
@@ -40,7 +40,7 @@ var locate = {
     getZipCode: function(){
         $.ajax({
             url:"https://maps.googleapis.com/maps/api/geocode/json",
-            data:{latlng:locate.coords.lat+","+locate.coords.long, key:"AIzaSyAoFLJ8rof0epbnk-tRVbMBncnfRJeZ-WM"},
+            data:{latlng:locate.coords.lat+","+locate.coords.long, key:"GOOGLEAPI"},
             success: function(data){
                 console.log(data);
                 locate.address.street = data.results[0].address_components[0].short_name + " "+ data.results[0].address_components[1].short_name ;
