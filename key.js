@@ -1,2 +1,0 @@
-var WEATHERAPI="2dcdfd7a2a15ffd8";
-var GOOGLEAPI="AIzaSyCyIUbPsCaUND2MPqptgBDO-fm04YjVHoI";
