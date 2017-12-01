@@ -40,7 +40,7 @@ var locate = {
     getZipCode: function(){
         $.ajax({
             url:"https://maps.googleapis.com/maps/api/geocode/json",
-            data:{latlng:locate.coords.lat+","+locate.coords.long, key:"GOOGLEAPI"},
+            data:{latlng:locate.coords.lat+","+locate.coords.long, key:GOOGLEAPI},
             success: function(data){
                 console.log(data);
                 locate.address.street = data.results[0].address_components[0].short_name + " "+ data.results[0].address_components[1].short_name ;
