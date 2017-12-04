@@ -30,12 +30,7 @@ var locate = {
         document.getElementById("coordLong").innerHTML = "Longitude: " + locate.coords.long;
         document.getElementById("address1").innerHTML =  locate.address.street;
         document.getElementById("address2").innerHTML = locate.address.city+" " + locate.address.state+ ", " + locate.address.zipCode;
-        
-        // for(var i = 0; i < locate.address.length; i++)
-        // var streetAddress = document.createElement("P");
-        // streetAddress.innerHTML = locate.address.key[i];
-        // document.getElementById("address").appendChild(streetAddress);
-        
+    
     },
     getZipCode: function(){
         $.ajax({
@@ -50,13 +45,23 @@ var locate = {
                 locate.displayLocation();
                 }
             
-        })
+        });
     }
     
     
 };
 
 var weather = {
+    getWeather: function(){
+        $.ajax({
+            url:"http://api.wunderground.com/api"
+            data:{14722faf3c0c75cd, forecast, q, locate.address.state, locate.address.city},
+            success: function(){
+                console.log(data);
+            }
+            
+        })
+    }
  
 };
 
