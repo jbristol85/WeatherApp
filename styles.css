@@ -2,3 +2,33 @@
     font-size: 2em;
     color: red;
 }
+/*body{*/
+/*    background-image: url("https://media.giphy.com/media/exfSTanP4prYQ/giphy.gif");*/
+/*     background-repeat: no-repeat;*/
+/*     background-size: 100vw;*/
+
+/*}*/
+.extraConditions{
+    display: inline-block;
+}
+#currentImg{
+    width: 100px;    
+
+}
+#currentWeatherSection, #radioButtons{
+    display:inline;
+}
+#todaysWeather{
+    padding-top:20px;
+}
+#radioButtons{
+    padding-top:20px;
+    text-align:left;
+    padding-left:0px;
+}
+#currentWeatherSection{
+    /*margin-left:auto;*/
+    z-index:-1;
+    /*padding-right:0px;*/
+    /*margin-right:50vw;*/
+}

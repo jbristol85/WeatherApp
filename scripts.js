@@ -1,4 +1,4 @@
-/*global $ navigator OPENAPI GOOGLEAPI*/
+/*global $ navigator DARKSKYAPI OPENAPI GOOGLEAPI*/
 // degrees celcius - &#8451;
 
 var locate = {
@@ -22,6 +22,7 @@ var locate = {
                 locate.getZipCode();
                 weather.currentWeather();
                 weather.forecastWeather();
+                // weather.darkSky();
 
             });
         }
@@ -63,6 +64,7 @@ var weather = {
         lowTemp: "",
         conditions: "",
         windSpeed: "",
+        humidity: "",
         icon: "",
         iconLink: "https://openweathermap.org/img/w/"
 
@@ -78,11 +80,12 @@ var weather = {
             success: function(data) {
                 console.log(data);
                 that.today.temp = data.main.temp;
-                that.today.hightTemp = data.main.temp_max;
+                that.today.highTemp = data.main.temp_max;
                 that.today.lowTemp = data.main.temp_min;
-                that.today.conditions = data.weather[1].description;
-                that.today.icon = data.weather[1].icon;
+                that.today.conditions = data.weather[0].description;
+                that.today.icon = data.weather[0].icon;
                 that.today.windSpeed = data.wind.speed;
+                that.today.humidity = data.main.humidity;
                 that.displayWeather();
             }
         });
@@ -98,11 +101,16 @@ var weather = {
         });
     },
     displayWeather: function() {
-        console.log(this.today.iconLink + this.today.icon+ ".png");
+        // console.log(this.today.iconLink + this.today.icon+ ".png");
         document.getElementById("currentImg").src = this.today.iconLink + this.today.icon+ ".png";
-        document.getElementById("currentTemp").innerHTML = weather.today.temp + " &#8457;";
-    }
-
+        document.getElementById("currentTemp").innerHTML = this.today.temp + " &#8457;";
+        document.getElementById("todayLow").innerHTML = "Low: "+this.today.lowTemp + " &#8457;";
+        document.getElementById("todayHi").innerHTML = "High: "+ this.today.highTemp + " &#8457;";
+        document.getElementById("weatherDescription").innerHTML = this.today.conditions;
+        document.getElementById("todayWind").innerHTML = "Wind: "+this.today.windSpeed +" mph";
+        document.getElementById("todayHumidity").innerHTML = "Humidity: "+this.today.humidity + "%";
+        
+    },
 
 
 };

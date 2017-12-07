@@ -17,18 +17,41 @@
         <!--<p id="coordLong"></p>-->
         <!--<p id="address1"></p>-->
         <p id="address2"></p>
-<form>
-    <p>Find weather for another location:</p>
-    <input placeholer="zipcode">
-    <button class="btn btn-primary">Submit</button>
-</form>
-<div id="currentWeatherSection">
-    <img id="currentImg">
-    <h1 id="currentTemp"></h1>
-    
-    
-</div>
-
+        <form>
+            <p>Find weather for another location:</p>
+            <input placeholer="zipcode">
+            <button class="btn btn-primary">Submit</button>
+        </form>
+        <div id="todaysWeather">
+        <div class="container text-center">
+            <div class="row">
+                <div id="currentWeatherSection" class="col-xs-2 col-xs-offset-4">
+                    <img id="currentImg">
+                    <p id="weatherDescription"></p>
+                    <h1 id="currentTemp"></h1>
+                </div>
+                <div id="radioButtons" class="col-xs-2">
+                    <label class="container">
+                    <input type="radio" value="f" id="radioF">&#8457;
+                    </label>
+                    <label class="container">
+                    <input type="radio" value="c" id="radioC">&#8451;
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="" class="row">
+                <p id="todayLow" class="extraConditions"></p>
+                <p id="todayHi" class="extraConditions"></p>
+                <div>
+                    <p id="todayWind" class="extraConditions"></p>
+                    <p id="todayHumidity" class="extraConditions"></p>
+                </div>
+                <p </p>
+            </div>
+        </div>
+    </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
