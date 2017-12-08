@@ -60,10 +60,14 @@ var locate = {
 var weather = {
     today: {
         temp: "",
+        cTemp: "",
         highTemp: "",
+        cHighTemp: "",
         lowTemp: "",
+        cLowTemp: "",
         conditions: "",
         windSpeed: "",
+        cWindSpeed:"",
         humidity: "",
         icon: "",
         iconLink: "https://openweathermap.org/img/w/"
@@ -71,7 +75,7 @@ var weather = {
     },
     currentWeather: function() {
         // var apiURL="https://api.openweathermap.org/data/2.5/weather?lat="+locate.coords.lat+"&lon="+locate.coords.long+"&APPID=97ca37be0ddae7383d1127163600cdaf"
-       var that = this;
+        var that = this;
 
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/weather",
@@ -86,6 +90,12 @@ var weather = {
                 that.today.icon = data.weather[0].icon;
                 that.today.windSpeed = data.wind.speed;
                 that.today.humidity = data.main.humidity;
+                that.today.cTemp = (that.today.temp - 32 * (5 / 9)).toFixed(1);
+                that.today.cHighTemp = (that.today.highTemp - 32 * (5 / 9)).toFixed(1);
+                that.today.cLowTemp = (that.today.lowTemp - 32 * (5 / 9)).toFixed(1);
+                that.today.cWindSpeed = (that.today.windSpeed * 1.60934).toFixed(1);
+                
+                // weather.tempConversion();
                 that.displayWeather();
             }
         });
@@ -101,18 +111,59 @@ var weather = {
         });
     },
     displayWeather: function() {
-        // console.log(this.today.iconLink + this.today.icon+ ".png");
-        document.getElementById("currentImg").src = this.today.iconLink + this.today.icon+ ".png";
-        document.getElementById("currentTemp").innerHTML = this.today.temp + " &#8457;";
-        document.getElementById("todayLow").innerHTML = "Low: "+this.today.lowTemp + " &#8457;";
-        document.getElementById("todayHi").innerHTML = "High: "+ this.today.highTemp + " &#8457;";
+        document.getElementById("currentImg").src = this.today.iconLink + this.today.icon + ".png";
+        document.getElementById("todayHumidity").innerHTML = 'Humidity: ' + this.today.humidity + "%";
         document.getElementById("weatherDescription").innerHTML = this.today.conditions;
-        document.getElementById("todayWind").innerHTML = "Wind: "+this.today.windSpeed +" mph";
-        document.getElementById("todayHumidity").innerHTML = "Humidity: "+this.today.humidity + "%";
-        
+
+        if (document.getElementById("radioF").checked) {
+
+            console.log("got here");
+
+            document.getElementById("currentTemp").innerHTML = this.today.temp + " &#8457;";
+            document.getElementById("todayLow").innerHTML = "Low: " + this.today.lowTemp + " &#8457;";
+            document.getElementById("todayHi").innerHTML = "High: " + this.today.highTemp + " &#8457;";
+
+            document.getElementById("todayWind").innerHTML = "Wind: " + this.today.windSpeed + " mph";
+
+        }
+        else if (document.getElementById("radioC").checked) {
+            console.log("here now");
+            // document.getElementById("currentImg").src = this.today.iconLink + this.today.icon+ ".png";
+            document.getElementById("currentTemp").innerHTML = this.today.cTemp + " &#8451;";
+            document.getElementById("todayLow").innerHTML = "Low: " + this.today.cLowTemp + " &#8451;";
+            document.getElementById("todayHi").innerHTML = "High: " + this.today.cHighTemp + " &#8451;";
+            // document.getElementById("weatherDescription").innerHTML = this.today.conditions;
+            // document.getElementById("todayWind").innerHTML = "Wind: " + this.today.windSpeed + " mph";
+            document.getElementById("todayWind").innerHTML = "Wind: " + this.today.cWindSpeed + " kph";
+            // document.getElementById("todayHumidity").innerHTML = 'Humidity: '+this.today.humidity + "%";
+        }
     },
+    // tempConversion: function() {
+    //     // document.getElementById("currentTemp").innerHTML = this.today.temp - 32 * (5/9);
+    //     // document.getElementById("todayLow").innerHTML = this.today.highTemp -32 *(5/9);
+    //     // document.getElementById("todayHi").innerHTML = this.today.lowTemp -32 *(5/9);
 
 
+    //     this.today.cTemp = this.today.temp - 32 * (5 / 9);
+    //     this.today.cHighTemp = this.today.highTemp - 32 * (5 / 9);
+    //     this.today.cLowTemp = this.today.lowTemp - 32 * (5 / 9);
+    //     console.log(this.today.cTemp);
+    // }
+
+
+};
+
+document.getElementById("radioF").onclick = function() {
+    console.log("button F");
+    document.getElementById("radioC").removeAttribute("checked");
+    document.getElementById("radioF").setAttribute("checked", "checked");
+    weather.displayWeather()
+};
+document.getElementById("radioC").onclick = function() {
+    console.log("button C");
+    document.getElementById("radioF").removeAttribute("checked");
+    document.getElementById("radioC").setAttribute("checked", "checked");
+    weather.displayWeather();
 };
 
 locate.getCoords();

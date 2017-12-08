@@ -2,33 +2,34 @@
     font-size: 2em;
     color: red;
 }
-/*body{*/
-/*    background-image: url("https://media.giphy.com/media/exfSTanP4prYQ/giphy.gif");*/
-/*     background-repeat: no-repeat;*/
-/*     background-size: 100vw;*/
 
-/*}*/
 .extraConditions{
     display: inline-block;
 }
 #currentImg{
-    width: 100px;    
+    width: 200px;    
 
 }
-#currentWeatherSection, #radioButtons{
-    display:inline;
+#weatherSection{
+    /*position:relative;*/
+    margin-top: -70px;
 }
-#todaysWeather{
-    padding-top:20px;
-}
+
 #radioButtons{
-    padding-top:20px;
-    text-align:left;
-    padding-left:0px;
+    /*z-index:5;*/
+    width:30px;
+    /*text-align:right;*/
+    
+    /*padding-top:20px;*/
+    /*text-align:left;*/
+    /*padding-left:0px;*/
 }
-#currentWeatherSection{
-    /*margin-left:auto;*/
-    z-index:-1;
-    /*padding-right:0px;*/
-    /*margin-right:50vw;*/
+
+
+.well{
+    /*border:1px black solid;*/
+     padding-top:20px;
+    width:40%;
+    margin-left:auto;
+    margin-right:auto;
 }
