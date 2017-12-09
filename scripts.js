@@ -52,16 +52,16 @@ var locate = {
         var searchedAddress = document.getElementById("searchBar").value;
         console.log(searchedAddress);
         $.ajax({
-                url: "https://maps.googleapis.com/maps/api/geocode/json",
-                data: { address: searchedAddress, key: GOOGLEAPI },
-                success: function(data) {
-                    // console.log(data)
-                    // console.log(data.results[0].geometry.location.lat);
-                    locate.coords.lat=data.results[0].geometry.location.lat;
-                    locate.coords.long=data.results[0].geometry.location.lng;
-                    weather.currentWeather()
-                }
-            
+            url: "https://maps.googleapis.com/maps/api/geocode/json",
+            data: { address: searchedAddress, key: GOOGLEAPI },
+            success: function(data) {
+                // console.log(data)
+                // console.log(data.results[0].geometry.location.lat);
+                locate.coords.lat = data.results[0].geometry.location.lat;
+                locate.coords.long = data.results[0].geometry.location.lng;
+                weather.currentWeather()
+            }
+
         });
     }
 };
@@ -78,11 +78,11 @@ var weather = {
         windSpeed: "",
         cWindSpeed: "",
         humidity: "",
-        id:"",
+        id: "",
         icon: "",
         iconLink: "https://openweathermap.org/img/w/"
     },
-       currentWeather: function() {
+    currentWeather: function() {
         var that = this;
 
         $.ajax({
@@ -107,13 +107,13 @@ var weather = {
             }
         });
     },
-    
-    
+
+
     displayWeather: function() {
         // document.getElementById("currentImg").src = this.today.iconLink + this.today.icon + ".png";
         document.getElementById("todayHumidity").innerHTML = 'Humidity: ' + this.today.humidity + "%";
         document.getElementById("weatherDescription").innerHTML = this.today.conditions;
-        document.getElementById("weatherIcon").innerHTML = '<i class="wi wi-owm-' + this.today.id+'"></i>'
+        document.getElementById("weatherIcon").innerHTML = '<i class="wi wi-owm-' + this.today.id + '"></i>'
 
         if (document.getElementById("radioF").checked) {
             document.getElementById("currentTemp").innerHTML = this.today.temp + " &#8457;";
@@ -127,12 +127,12 @@ var weather = {
             document.getElementById("todayHi").innerHTML = "High: " + this.today.cHighTemp + " &#8451;";
             document.getElementById("todayWind").innerHTML = "Wind: " + this.today.cWindSpeed + " kph";
         }
-    
+
     },
 
 
 };
-document.getElementById("submit").onclick=function(event){
+document.getElementById("submit").onclick = function(event) {
     event.preventDefault();
     locate.getCoordsSearch();
     document.getElementById("title").innerHTML = "Local weather for " + document.getElementById("searchBar").value;
@@ -155,34 +155,34 @@ locate.getCoords();
 //----For setting up 5day forecast -----
 
 // forecastWeather: function() {
-    //     $.ajax({
-    //         url: "https://api.openweathermap.org/data/2.5/forecast",
-    //         data: { lat: locate.coords.lat, lon: locate.coords.long, units: "imperial", APPID: OPENAPI },
-    //         dataType: "json",
-    //         success: function(data) {
-    //             console.log(data);
-    //             console.log(data.list);
-    //             (data.list).forEach(function(currentValue, index, array){
-    //                 // console.log(currentValue.main.temp)
-    //                 var foreDate = currentValue.dt;
-    //                 var convertedDate= new Date(foreDate*1000);
-    //                 var date = new Date();
-    //                 var todayDay = date.getDay();
-                 
-    //               weather.forecast[convertedDate.getDay()].temp.push(currentValue.main.temp);
-    //               weather.forecast[convertedDate.getDay()].conditions.push(currentValue.weather[0].description);
-    //               weather.forecast[convertedDate.getDay()].icon.push(currentValue.weather[0].icon);
-    //               weather.displayForecast();
-        
-    //             });
-    //         }
-    //     });
-    // },
-        // displayForecast: function(){
-    //     for(var i = 0 ; i<weather.forecast.length; i++){
-    //     var forecastDiv = document.createElement("DIV");
-    //     forecastDiv.setAttribute("class", "well");
-    //     forecastDiv.innerHTML = weather.forecast[i].temp[2];
-    //     document.getElementById("forecastWells").appendChild(forecastDiv);
-    //     }
-    // }
+//     $.ajax({
+//         url: "https://api.openweathermap.org/data/2.5/forecast",
+//         data: { lat: locate.coords.lat, lon: locate.coords.long, units: "imperial", APPID: OPENAPI },
+//         dataType: "json",
+//         success: function(data) {
+//             console.log(data);
+//             console.log(data.list);
+//             (data.list).forEach(function(currentValue, index, array){
+//                 // console.log(currentValue.main.temp)
+//                 var foreDate = currentValue.dt;
+//                 var convertedDate= new Date(foreDate*1000);
+//                 var date = new Date();
+//                 var todayDay = date.getDay();
+
+//               weather.forecast[convertedDate.getDay()].temp.push(currentValue.main.temp);
+//               weather.forecast[convertedDate.getDay()].conditions.push(currentValue.weather[0].description);
+//               weather.forecast[convertedDate.getDay()].icon.push(currentValue.weather[0].icon);
+//               weather.displayForecast();
+
+//             });
+//         }
+//     });
+// },
+// displayForecast: function(){
+//     for(var i = 0 ; i<weather.forecast.length; i++){
+//     var forecastDiv = document.createElement("DIV");
+//     forecastDiv.setAttribute("class", "well");
+//     forecastDiv.innerHTML = weather.forecast[i].temp[2];
+//     document.getElementById("forecastWells").appendChild(forecastDiv);
+//     }
+// }

@@ -1,43 +1,47 @@
-body{
+body {
     background-color: lightgrey;
 }
-#title{
+
+#title {
     font-size: 2em;
-  
+
 }
 
-.extraConditions{
+.extraConditions {
     display: inline-block;
 }
-#currentImg{
-    width: 200px;    
-    margin-right:auto;
-    margin-left:auto;
+
+#currentImg {
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
 
 }
-#weatherSection{
+
+#weatherSection {
     /*position:relative;*/
     margin-top: -70px;
 }
 
-#radioButtons{
-   
-    width:30px;
-  
+#radioButtons {
+
+    width: 30px;
+
 }
 
 
-.well{
+.well {
     /*border:1px black solid;*/
-     padding-top:20px;
-    width:40%;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:20px;
-    margin-bottom:0px;
-    background-color:#FF7F50;
+    padding-top: 20px;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    background-color: #FF7F50;
     color: white;
 }
-#weatherIcon{
+
+#weatherIcon {
     font-size: 6em;
 }
