@@ -1,6 +1,9 @@
+body{
+    background-color: lightgrey;
+}
 #title{
     font-size: 2em;
-    color: red;
+  
 }
 
 .extraConditions{
@@ -8,6 +11,8 @@
 }
 #currentImg{
     width: 200px;    
+    margin-right:auto;
+    margin-left:auto;
 
 }
 #weatherSection{
@@ -16,13 +21,9 @@
 }
 
 #radioButtons{
-    /*z-index:5;*/
+   
     width:30px;
-    /*text-align:right;*/
-    
-    /*padding-top:20px;*/
-    /*text-align:left;*/
-    /*padding-left:0px;*/
+  
 }
 
 
@@ -32,4 +33,11 @@
     width:40%;
     margin-left:auto;
     margin-right:auto;
+    margin-top:20px;
+    margin-bottom:0px;
+    background-color:#FF7F50;
+    color: white;
+}
+#weatherIcon{
+    font-size: 6em;
 }

@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>WeatherApp</title>
 </head>
 
 <body>
     <div class="container text-center">
+        <h1>Current Weather for:</h1>
         <h1 id="title"></h1>
         <!--<p id="coordLat"></p>-->
         <!--<p id="coordLong"></p>-->
@@ -19,21 +21,22 @@
         <p id="address2"></p>
         <form>
             <p>Find weather for another location:</p>
-            <input placeholer="zipcode">
-            <button class="btn btn-primary">Submit</button>
+            <input placeholder="City, State" id="searchBar">
+            <button class="btn btn-primary" id="submit">Submit</button>
         </form>
         <div id="todaysWeather">
             <div class="well">
 
-                <div  class="text-center">
-                    <div id="radioButtons" >
+                <div class="text-center">
+                    <div id="radioButtons">
                         <input type="radio" name="tempSwap" value="fTemp" checked="checked" id="radioF">&#8457;<br>
                         <input type="radio" name="tempSwap" value="cTemp" id="radioC">&#8451;
                     </div>
                 </div>
 
                 <div id="weatherSection">
-                    <img id="currentImg">
+                    <p id="weatherIcon"></p>
+                    <!--<img id="currentImg" class="img-responsive">-->
                     <p id="weatherDescription"></p>
                     <h1 id="currentTemp"></h1>
 
@@ -46,14 +49,18 @@
                         <br>
                         <p id="todayWind" class="extraConditions"></p>
                         <p id="todayHumidity" class="extraConditions"></p>
-
+                        <p id="weatherIcon"></p>
+                        <!--<p><i class="wi wi-owm-200"></i>dfhgsre</p>-->
 
                     </div>
                 </div>
+               
             </div>
         </div>
-    </div>
+        <!--<div id="forecastWells">-->
 
+        <!--</div>-->
+       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="key.js"></script>
