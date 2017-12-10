@@ -30,6 +30,9 @@ body {
     width: 30px;
 
 }
+#todayLow, #todayWind{
+    margin-right: 20px;
+}
 
 
 .well {
@@ -38,7 +41,7 @@ body {
     /*background-size: 100%;*/
     /*opacity:.1;*/
     padding-top: 35px;
-    width: 40%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;

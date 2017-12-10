@@ -32,7 +32,7 @@ var locate = {
         // document.getElementById("coordLat").innerHTML = "Latitude: " + locate.coords.lat;
         // document.getElementById("coordLong").innerHTML = "Longitude: " + locate.coords.long;
         // document.getElementById("address1").innerHTML = locate.address.street;
-        document.getElementById("title").innerHTML = locate.address.city + " " + locate.address.state + ", " + locate.address.zipCode;
+        document.getElementById("title").innerHTML = locate.address.city +" " + locate.address.state + ", " + locate.address.zipCode;
     },
     getZipCode: function() {
         $.ajax({
