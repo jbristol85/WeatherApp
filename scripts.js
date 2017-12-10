@@ -82,6 +82,15 @@ var weather = {
         icon: "",
         iconLink: "https://openweathermap.org/img/w/"
     },
+    backgroundImg: {
+        thunder: "https://images.unsplash.com/photo-1504466664756-1adbe6d13b36?auto=format&fit=crop&w=1050&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+        drizzle: "https://bloximages.chicago2.vip.townnews.com/cumberlink.com/content/tncms/assets/v3/editorial/c/2b/c2b35358-b107-11e2-96e6-001a4bcf887a/517ed1e66451c.image.jpg",
+        rain: "https://images.unsplash.com/photo-1438449805896-28a666819a20?auto=format&fit=crop&w=1050&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+        snow: "https://images.unsplash.com/photo-1427955569621-3e494de2b1d2?auto=format&fit=crop&w=1050&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+        atmosphere: "https://images.unsplash.com/photo-1415347373860-1f2049f610ce?auto=format&fit=crop&w=1050&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+        clear: "https://images.unsplash.com/photo-1504321946642-8f661bf96ff0?auto=format&fit=crop&w=1050&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+        clouds: "https://images.unsplash.com/photo-1500113018993-b5c64275ed93?auto=format&fit=crop&w=634&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+    },
     currentWeather: function() {
         var that = this;
 
@@ -90,7 +99,7 @@ var weather = {
             data: { lat: locate.coords.lat, lon: locate.coords.long, units: "imperial", APPID: OPENAPI },
             dataType: "json",
             success: function(data) {
-                console.log(data.weather[0].id);
+                // console.log(data.weather[0].id);
                 that.today.temp = (data.main.temp.toFixed(1));
                 that.today.highTemp = data.main.temp_max;
                 that.today.lowTemp = data.main.temp_min;
@@ -104,6 +113,7 @@ var weather = {
                 that.today.cLowTemp = (that.today.lowTemp - 32 * (5 / 9)).toFixed(1);
                 that.today.cWindSpeed = (that.today.windSpeed * 1.60934).toFixed(1);
                 that.displayWeather();
+                that.backgroundWeather();
             }
         });
     },
@@ -129,6 +139,36 @@ var weather = {
         }
 
     },
+    backgroundWeather: function() {
+        var x = this.today.id;
+        var y = document.getElementById("weatherWell");
+        console.log(x);
+        switch (true) {
+            case (x >= 200 && x < 299):
+                y.style.background = "url("+weather.backgroundImg.thunder+") 100%";
+                break;         
+            case x >= 300 && x < 399:
+                y.style.background = "url("+weather.backgroundImg.drizzle+") 100%";
+                break;
+            case x >= 500 && x < 599:
+                y.style.background = "url("+weather.backgroundImg.rain+") 100%";
+                break;
+            case x >= 600 && x < 699:
+                y.style.background = "url("+weather.backgroundImg.snow+") 100%";
+                break;
+            case x >= 700 && x < 799:
+                y.style.background = "url("+weather.backgroundImg.atmosphere+") 100%";
+                break;
+            case x == 800:
+                y.style.background = "url("+weather.backgroundImg.clear+") 100%";
+                break;
+            case x >= 801 && x < 899:
+                y.style.background = "url("+weather.backgroundImg.clouds+" ) 100%";
+                break;
+            default:
+                console.log("no weather");
+        }
+    }
 
 
 };
