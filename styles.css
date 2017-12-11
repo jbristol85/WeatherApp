@@ -17,7 +17,9 @@ body {
     width: 200px;
     margin-right: auto;
     margin-left: auto;
-
+}
+#currentTemp{
+    font-size: 4em;
 }
 
 #weatherSection {
@@ -32,8 +34,11 @@ body {
 }
 #todayLow, #todayWind{
     margin-right: 20px;
+    
 }
-
+#todayDetails{
+    font-size:1.5em;
+}
 
 .well {
     /*border:1px black solid;*/
@@ -57,4 +62,9 @@ body {
 
 #weatherIcon {
     font-size: 6em;
+}
+#accordion{
+    width: 70%;
+    margin-right:auto;
+    margin-left:auto;
 }

@@ -89,7 +89,7 @@ var weather = {
         snow: "https://images.unsplash.com/photo-1427955569621-3e494de2b1d2?auto=format&fit=crop&w=1050&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
         atmosphere: "https://images.unsplash.com/photo-1415347373860-1f2049f610ce?auto=format&fit=crop&w=1050&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
         clear: "https://images.unsplash.com/photo-1504321946642-8f661bf96ff0?auto=format&fit=crop&w=1050&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
-        clouds: "https://images.unsplash.com/photo-1500113018993-b5c64275ed93?auto=format&fit=crop&w=634&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+        clouds: "https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?auto=format&fit=crop&w=1950&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
     },
     currentWeather: function() {
         var that = this;
@@ -142,31 +142,31 @@ var weather = {
     backgroundWeather: function() {
         var x = this.today.id;
         var y = document.getElementById("weatherWell");
-        console.log(x);
+        // console.log(x);
         switch (true) {
             case (x >= 200 && x < 299):
-                y.style.background = "url("+weather.backgroundImg.thunder+") 100%";
+                y.style.background = "url("+weather.backgroundImg.thunder+") 100% no-repeat";
                 break;         
             case x >= 300 && x < 399:
-                y.style.background = "url("+weather.backgroundImg.drizzle+") 100%";
+                y.style.background = "url("+weather.backgroundImg.drizzle+") 100% no-repeat";
                 break;
             case x >= 500 && x < 599:
-                y.style.background = "url("+weather.backgroundImg.rain+") 100%";
+                y.style.background = "url("+weather.backgroundImg.rain+") 100% no-repeat";
                 break;
             case x >= 600 && x < 699:
-                y.style.background = "url("+weather.backgroundImg.snow+") 100%";
+                y.style.background = "url("+weather.backgroundImg.snow+") 100% no-repeat";
                 break;
             case x >= 700 && x < 799:
-                y.style.background = "url("+weather.backgroundImg.atmosphere+") 100%";
+                y.style.background = "url("+weather.backgroundImg.atmosphere+") 100% no-repeat";
                 break;
             case x == 800:
-                y.style.background = "url("+weather.backgroundImg.clear+") 100%";
+                y.style.background = "url("+weather.backgroundImg.clear+") 100% no-repeat";
                 break;
             case x >= 801 && x < 899:
                 y.style.background = "url("+weather.backgroundImg.clouds+" ) 100%";
                 break;
             default:
-                console.log("no weather");
+                console.log("Take Cover!");
         }
     }
 
