@@ -59,7 +59,7 @@ var locate = {
                 // console.log(data.results[0].geometry.location.lat);
                 locate.coords.lat = data.results[0].geometry.location.lat;
                 locate.coords.long = data.results[0].geometry.location.lng;
-                weather.currentWeather()
+                weather.currentWeather();
             }
 
         });
@@ -123,7 +123,7 @@ var weather = {
         // document.getElementById("currentImg").src = this.today.iconLink + this.today.icon + ".png";
         document.getElementById("todayHumidity").innerHTML = 'Humidity: ' + this.today.humidity + "%";
         document.getElementById("weatherDescription").innerHTML = this.today.conditions;
-        document.getElementById("weatherIcon").innerHTML = '<i class="wi wi-owm-' + this.today.id + '"></i>'
+        document.getElementById("weatherIcon").innerHTML = '<i class="wi wi-owm-' + this.today.id + '"></i>';
 
         if (document.getElementById("radioF").checked) {
             document.getElementById("currentTemp").innerHTML = this.today.temp + " &#8457;";
